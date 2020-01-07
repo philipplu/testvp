@@ -5,6 +5,9 @@ import { Entry as IEntry } from '../../../model/Entry'
 import { ListItem, ListItemContent, ListItemDetails } from '../List/List'
 import { TeacherDetail } from './details/TeacherDetail'
 import { RoomDetail } from './details/RoomDetail'
+import { TypeDetail } from './details/TypeDetail'
+import { InfoDetail } from './details/InfoDetail'
+import { TimeDetail } from './details/TimeDetail'
 
 interface Props {
 	entry: IEntry
@@ -22,6 +25,9 @@ const Entry: FunctionComponent<Props> = ({ entry }) => {
 			<ListItemDetails>
 				<TeacherDetail entry={entry} forceShow={false} />
 				<RoomDetail entry={entry} forceShow={false} />
+				<TypeDetail entry={entry} forceShow={false} />
+				<InfoDetail entry={entry} forceShow={false} />
+				<TimeDetail entry={entry} forceShow={false} />
 			</ListItemDetails>
 		</ListItem>
 	)
