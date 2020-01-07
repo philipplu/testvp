@@ -8,6 +8,7 @@ import { stripHtml } from './stripHtml'
 import { Changeable } from '../model/Changeable'
 import { SchoolClass } from '../model/SchoolClass'
 import { sortSchoolClasses } from './sortSchoolClasses'
+import { prefixRoom } from './prefixRoom'
 
 export function formatEntries(rows: PayloadRow[]): SchoolClass[] {
 	rows = rows.sort((a, b) =>
@@ -33,7 +34,9 @@ export function formatEntries(rows: PayloadRow[]): SchoolClass[] {
 			type:
 				stripHtml(row.data[6]).replace('Raumänderung', '') || undefined,
 			info: stripHtml(row.data[7]) || undefined,
-			hash: getHash(row.group + ((<unknown>row.data) as string[]).join()),
+			hash: getHash(
+				row.group + ((row.data as unknown) as string[]).join()
+			),
 		}
 		if (!Object.keys(schoolClassIndices).includes(schoolClass)) {
 			entries.push({
@@ -47,15 +50,4 @@ export function formatEntries(rows: PayloadRow[]): SchoolClass[] {
 	}
 
 	return entries
-}
-
-export function prefixRoom(changeable: Changeable): Changeable {
-	const isNumber: RegExp = /^\d+$/
-	if (isNumber.test(changeable.effective)) {
-		changeable.effective = `R${changeable.effective}`
-	}
-	if (changeable.previous && isNumber.test(changeable.previous)) {
-		changeable.previous = `R${changeable.previous}`
-	}
-	return changeable
 }

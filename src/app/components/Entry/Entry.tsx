@@ -4,6 +4,7 @@ import cssModule from './entry.module.scss'
 import { Entry as IEntry } from '../../../model/Entry'
 import { ListItem, ListItemContent, ListItemDetails } from '../List/List'
 import { TeacherDetail } from './details/TeacherDetail'
+import { RoomDetail } from './details/RoomDetail'
 
 interface Props {
 	entry: IEntry
@@ -20,6 +21,7 @@ const Entry: FunctionComponent<Props> = ({ entry }) => {
 			/>
 			<ListItemDetails>
 				<TeacherDetail entry={entry} forceShow={false} />
+				<RoomDetail entry={entry} forceShow={false} />
 			</ListItemDetails>
 		</ListItem>
 	)
