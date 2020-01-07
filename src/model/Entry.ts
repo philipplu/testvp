@@ -1,13 +1,13 @@
-import { EffectiveOld } from './EffectiveOld'
+import { Changeable } from './Changeable'
 
 export interface Entry {
 	schoolClass: string
 	subject: string
 	hours: string
 	time: string
-	teacher: EffectiveOld[]
-	room: EffectiveOld[]
+	teacher: Changeable[]
+	room: Changeable[]
 	type?: string
-	message?: string
+	info?: string
 	hash: number
 }

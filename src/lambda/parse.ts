@@ -14,5 +14,6 @@ export function parse(payload: Payload): Day {
 		),
 		messages: formatMessages(payload.payload.messageData.messages),
 		entries: formatEntries(payload.payload.rows),
+		lastUpdate: payload.payload.lastUpdate,
 	}
 }
