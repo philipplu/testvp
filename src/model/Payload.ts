@@ -27,6 +27,7 @@ export interface PayloadRow {
 		4: string
 		5: string
 		6: string
+		7: string
 	}
 	cssClasses: string[]
 	cellClasses: string[][]

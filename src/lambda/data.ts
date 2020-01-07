@@ -1,7 +1,9 @@
 import { APIGatewayEvent, Context } from 'aws-lambda'
-import { test } from './test'
 import { getData } from './getData'
 import { getDate } from './getDate'
+import { Day } from '../model/Day'
+import { Payload } from '../model/Payload'
+import { parse } from './parse'
 
 interface DataResponse {
 	statusCode: number
@@ -18,26 +20,20 @@ export async function handler(
 
 	console.log(getDate())
 
-	const todayData = await getData(getDate(), 0)
+	const daysToShow: number = 2
+	const date: number = getDate()
 
-	console.log(JSON.stringify(todayData))
-
-	if (lastUpdate === todayData.payload.lastUpdate) {
-		return {
-			statusCode: 200,
-			body: JSON.stringify({
-				lastUpdate,
-			}),
-		}
+	const requests: Promise<Payload>[] = []
+	for (let dateOffset = 0; dateOffset < daysToShow; dateOffset++) {
+		requests.push(getData(date, dateOffset))
 	}
 
-	const tomorrowData = await getData(getDate(), 1)
+	const payloads: Payload[] = await Promise.all(requests)
+
+	const days: Day[] = payloads.map(parse)
+
 	return {
 		statusCode: 200,
-		body: JSON.stringify({
-			today: todayData,
-			tomorrow: tomorrowData,
-			lastUpdate: todayData.payload.lastUpdate,
-		}),
+		body: JSON.stringify(days),
 	}
 }

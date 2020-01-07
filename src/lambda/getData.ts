@@ -1,6 +1,6 @@
 import fetch from 'node-fetch'
 import { defaultOptions } from './defaultOptions'
-import { Payload } from './Payload'
+import { Payload } from '../model/Payload'
 
 export async function getData(
 	date: number,

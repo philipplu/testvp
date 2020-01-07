@@ -19,7 +19,7 @@ const defaultOptions = {
 	departmentElementType: -1,
 	hideCancelWithSubstitution: true,
 	hideCancelCausedByEvent: false,
-	showTime: false,
+	showTime: true,
 	showSubstText: true,
 	showAbsentElements: [],
 	showAffectedElements: [1],
