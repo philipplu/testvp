@@ -1,5 +1,6 @@
 import React, { FunctionComponent, Fragment } from 'react'
 import { Changeable } from '../../../model/Changeable'
+import Arrow from '../../img/arrow-right.svg'
 
 interface Props {
 	changeables: Changeable[]
@@ -12,7 +13,7 @@ const ChangeableList: FunctionComponent<Props> = ({ changeables }) => (
 				{previous && (
 					<Fragment>
 						<span>{previous}</span>
-						arrow
+						{Arrow}
 					</Fragment>
 				)}
 				{effective}

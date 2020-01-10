@@ -5,6 +5,7 @@ import { ListItemDetail } from '../../List/List'
 import { DetailProps } from '../DetailProps'
 
 const shouldShow = (entry: Entry): boolean =>
+	entry.teacher.some(changeable => changeable.previous !== undefined) &&
 	!entry.teacher.every(({ effective, previous }) => effective === previous)
 
 const TeacherDetail: FunctionComponent<DetailProps> = ({

@@ -20,7 +20,7 @@ export async function handler(
 
 	console.log(getDate())
 
-	const daysToShow: number = 2
+	const daysToShow: number = 20
 	const date: number = getDate()
 
 	const requests: Promise<Payload>[] = []

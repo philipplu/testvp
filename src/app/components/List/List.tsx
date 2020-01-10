@@ -81,13 +81,13 @@ export const ListItemDetails: FunctionComponent = props => {
 	return <div className={bem('item-details')}>{props.children}</div>
 }
 
-type ListItemDetailProps = React.DetailedHTMLProps<
-	React.HTMLAttributes<HTMLDivElement>,
-	HTMLDivElement
-> & {
+type ListItemDetailProps = {
 	shown: boolean
 }
 
-export const ListItemDetail: StatelessComponent<ListItemDetailProps> = props => {
-	return <div className={bem('item-detail')}>{props.children}</div>
+export const ListItemDetail: StatelessComponent<ListItemDetailProps> = ({
+	shown,
+	children,
+}) => {
+	return <div className={bem('item-detail', { shown })}>{children}</div>
 }
