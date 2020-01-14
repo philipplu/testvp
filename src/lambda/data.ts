@@ -25,7 +25,7 @@ export async function handler(
 
 	const requests: Promise<Payload>[] = []
 	for (let dateOffset = 0; dateOffset < daysToShow; dateOffset++) {
-		requests.push(getData(date, dateOffset - 1))
+		requests.push(getData(date, dateOffset))
 	}
 
 	const payloads: Payload[] = await Promise.all(requests)
