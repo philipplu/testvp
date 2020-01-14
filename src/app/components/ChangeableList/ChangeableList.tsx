@@ -8,8 +8,9 @@ interface Props {
 
 const ChangeableList: FunctionComponent<Props> = ({ changeables }) => (
 	<Fragment>
-		{changeables.map(({ effective, previous }) => (
+		{changeables.map(({ effective, previous }, index) => (
 			<Fragment key={effective + previous}>
+				{index !== 0 && ', '}
 				{previous && (
 					<Fragment>
 						<span>{previous}</span>

@@ -1,9 +1,9 @@
 import { APIGatewayEvent, Context } from 'aws-lambda'
-import { getData } from './getData'
-import { getDate } from './getDate'
+import { getData } from './utils/getData'
+import { getDate } from './utils/getDate'
 import { Day } from '../model/Day'
 import { Payload } from '../model/Payload'
-import { parse } from './parse'
+import { parse } from './utils/parse'
 
 interface DataResponse {
 	statusCode: number
@@ -20,7 +20,7 @@ export async function handler(
 
 	console.log(getDate())
 
-	const daysToShow: number = 20
+	const daysToShow: number = 2
 	const date: number = getDate()
 
 	const requests: Promise<Payload>[] = []

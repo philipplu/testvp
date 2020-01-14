@@ -1,4 +1,4 @@
-import { Changeable } from '../model/Changeable'
+import { Changeable } from '../../model/Changeable'
 
 export function prefixRoom(changeable: Changeable): Changeable {
 	const isNumber: RegExp = /^\d+$/

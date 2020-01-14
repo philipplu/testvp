@@ -1,5 +1,5 @@
-import { Day } from '../model/Day'
-import { Payload } from '../model/Payload'
+import { Day } from '../../model/Day'
+import { Payload } from '../../model/Payload'
 import { formatAffectedElements } from './formatAffectedElements'
 import { formatDate } from './formatDate'
 import { formatEntries } from './formatEntries'

@@ -1,4 +1,4 @@
-import { PayloadMessage } from '../model/Payload'
+import { PayloadMessage } from '../../model/Payload'
 import { stripHtml } from './stripHtml'
 
 export function formatMessages(payloadMessages: PayloadMessage[]): string[] {

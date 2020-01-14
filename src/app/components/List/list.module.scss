@@ -97,7 +97,7 @@ $list-header-width: 56px;
 	line-height: 48px;
 	color: $secondary;
 	position: sticky;
-	top: calc(56px + env(safe-area-inset-top));
+	top: calc(env(safe-area-inset-top));
 	z-index: 3;
 	pointer-events: none;
 

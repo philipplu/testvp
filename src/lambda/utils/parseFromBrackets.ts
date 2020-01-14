@@ -1,4 +1,4 @@
-import { Changeable } from '../model/Changeable'
+import { Changeable } from '../../model/Changeable'
 import { stripHtml } from './stripHtml'
 
 export function praseFromBrackets(input: string): Changeable[] {

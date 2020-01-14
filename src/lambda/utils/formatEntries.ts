@@ -1,6 +1,6 @@
-import { Entry } from '../model/Entry'
-import { PayloadRow } from '../model/Payload'
-import { SchoolClass } from '../model/SchoolClass'
+import { Entry } from '../../model/Entry'
+import { PayloadRow } from '../../model/Payload'
+import { SchoolClass } from '../../model/SchoolClass'
 import { getHash } from './getHash'
 import { getSubject } from './getSubject'
 import { praseFromBrackets } from './parseFromBrackets'
@@ -8,6 +8,8 @@ import { parseSchoolClass } from './parseSchoolClass'
 import { prefixRoom } from './prefixRoom'
 import { sortSchoolClasses } from './sortSchoolClasses'
 import { stripHtml } from './stripHtml'
+import { optionalTeacher } from './optionalTeacher'
+import { parseTime } from './parseTime'
 
 export function formatEntries(rows: PayloadRow[]): SchoolClass[] {
 	rows = rows.sort((a, b) =>
@@ -25,14 +27,13 @@ export function formatEntries(rows: PayloadRow[]): SchoolClass[] {
 		const schoolClass: string = parseSchoolClass(row.group)
 		const entry: Entry = {
 			schoolClass,
-			subject: getSubject(row.data[3]),
+			subject: getSubject(row.data[3]) + optionalTeacher(row),
 			hours: row.data[0],
-			time: row.data[1],
+			time: parseTime(row.data[1]),
 			teacher: praseFromBrackets(row.data[5]),
 			room: praseFromBrackets(row.data[4]).map(prefixRoom),
 			type:
-				stripHtml(row.data[6]).replace('Raumänderung', '') ||
-				undefined,
+				stripHtml(row.data[6]).replace('Raumänderung', '') || undefined,
 			info: stripHtml(row.data[7]) || undefined,
 			hash: getHash(
 				row.group + ((row.data as unknown) as string[]).join()
