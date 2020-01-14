@@ -1,6 +1,9 @@
 import { PayloadMessage } from '../../model/Payload'
 import { stripHtml } from './stripHtml'
 
-export function formatMessages(payloadMessages: PayloadMessage[]): string[] {
-	return payloadMessages.map(payloadMessage => stripHtml(payloadMessage.body))
-}
+const formatMessages = (payloadMessages: PayloadMessage[]): string[] =>
+	payloadMessages.map(payloadMessage =>
+		stripHtml(payloadMessage.body.replace(/<br>/g, '\n'))
+	)
+
+export { formatMessages }

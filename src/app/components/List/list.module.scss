@@ -134,6 +134,7 @@ $list-header-width: 56px;
 	line-height: 48px;
 	transition: height 250ms, opacity 250ms;
 	overflow: hidden;
+	display: flex;
 
 	&--shown {
 		height: 48px;

@@ -15,6 +15,9 @@ const DaySection: FunctionComponent<Props> = ({ day }) => {
 	return (
 		<div>
 			<DayHeader day={day} />
+			{day.messages.map(message => (
+				<pre>{message}</pre>
+			))}
 			{day.entries.map(schoolClass => (
 				<ClassSection
 					schoolClass={schoolClass}

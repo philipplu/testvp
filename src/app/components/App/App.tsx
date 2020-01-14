@@ -23,7 +23,7 @@ const App: FunctionComponent = () => {
 				setActiveEntry,
 			}}
 		>
-			<div className="App">
+			<div className={bem('app')}>
 				{data.map(day => (
 					<DaySection day={day} key={day.date}></DaySection>
 				))}
