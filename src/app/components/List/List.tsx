@@ -1,6 +1,6 @@
 import { bemModule } from '@jahed/bem'
 import React, { FunctionComponent, ReactNode, StatelessComponent } from 'react'
-import styles from './list.module.scss'
+import styles from './List.module.scss'
 
 const bem = bemModule(styles)
 

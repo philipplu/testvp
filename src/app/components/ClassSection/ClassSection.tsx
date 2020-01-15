@@ -1,9 +1,10 @@
 import { bemModule } from '@jahed/bem'
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, useContext } from 'react'
 import { SchoolClass } from '../../../model/SchoolClass'
 import cssModule from './class-section.module.scss'
 import { Entry } from '../Entry/Entry'
 import { ListGroup, ListGroupTitle } from '../List/List'
+import { AppContext } from '../../context/AppContext'
 
 interface Props {
 	schoolClass: SchoolClass
@@ -12,8 +13,11 @@ interface Props {
 const bem = bemModule(cssModule)
 
 const ClassSection: FunctionComponent<Props> = ({ schoolClass }) => {
+	const { activeClass } = useContext(AppContext)
 	return (
-		<ListGroup>
+		<ListGroup
+			hidden={!!activeClass && activeClass !== schoolClass.schoolClass}
+		>
 			<ListGroupTitle>{schoolClass.schoolClass}</ListGroupTitle>
 			{schoolClass.entries.map(entry => (
 				<Entry entry={entry} key={entry.hash} />

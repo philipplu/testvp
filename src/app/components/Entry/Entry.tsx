@@ -27,7 +27,9 @@ const Entry: FunctionComponent<Props> = ({ entry }) => {
 			/>
 			<ListItemDetails>
 				<TeacherDetail entry={entry} forceShow={forceShow} />
-				<RoomDetail entry={entry} forceShow={forceShow} />
+				{!!entry.room.length && (
+					<RoomDetail entry={entry} forceShow={forceShow} />
+				)}
 				<TypeDetail entry={entry} forceShow={forceShow} />
 				<InfoDetail entry={entry} forceShow={forceShow} />
 				<TimeDetail entry={entry} forceShow={forceShow} />

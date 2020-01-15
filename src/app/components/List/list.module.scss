@@ -82,6 +82,11 @@ $list-header-width: 56px;
 	&--growing {
 		height: auto;
 		min-height: 48px;
+
+		.item-content__primary {
+			white-space: pre;
+			padding: 0.8rem 0;
+		}
 	}
 
 	&__secondary {
@@ -95,7 +100,7 @@ $list-header-width: 56px;
 	max-width: 100vw;
 	margin: auto;
 	line-height: 48px;
-	color: $secondary;
+	color: var(--primary-color);
 	position: sticky;
 	top: calc(env(safe-area-inset-top));
 	z-index: 3;

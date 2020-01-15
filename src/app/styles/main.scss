@@ -4,12 +4,14 @@
 	--backgroundColor: #{$white};
 	--textColor: #{$black};
 	--accent-background-color: #{$lightgrey};
+	--primary-color: #{$primary};
 }
 
 @media (prefers-color-scheme: dark) {
 	:root {
 		--backgroundColor: #{$black};
 		--textColor: #{$white};
+		--accent-background-color: #{$darkgrey};
 	}
 }
 
