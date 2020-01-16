@@ -50,9 +50,11 @@ $list-header-width: 56px;
 				top: auto;
 				right: 0;
 				bottom: 0;
-				left: $list-header-width;
+				left: calc(#{$list-header-width} + env(safe-area-inset-left));
 				height: 1px;
-				width: calc(50vw + 50% - #{$list-header-width});
+				width: calc(
+					50vw + 50% - #{$list-header-width} - env(safe-area-inset-left)
+				);
 				transform: scaleY(calc(1 / var(--device-pixel-ratio, 1)));
 				transform-origin: bottom;
 			}
