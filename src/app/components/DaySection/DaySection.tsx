@@ -20,7 +20,7 @@ const bem = bemModule(cssModule)
 
 const DaySection: FunctionComponent<Props> = ({ day }) => {
 	return (
-		<div>
+		<div className={bem('day-section')}>
 			<DayOverview day={day} />
 			{!!day.messages.length && (
 				<div className={bem('messages-section')}>
@@ -45,7 +45,6 @@ const DaySection: FunctionComponent<Props> = ({ day }) => {
 					key={schoolClass.schoolClass}
 				/>
 			))}
-			<span>{day.lastUpdate}</span>
 		</div>
 	)
 }

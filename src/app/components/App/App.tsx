@@ -28,7 +28,7 @@ const App: FunctionComponent = () => {
 					<DaySection day={day} key={day.date}></DaySection>
 				))}
 				<button onClick={refresh}>refresh</button>
-				<Footer></Footer>
+				<Footer lastUpdate={data[0].lastUpdate}></Footer>
 			</div>
 		</AppContextProvider>
 	)

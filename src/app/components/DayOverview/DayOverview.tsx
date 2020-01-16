@@ -5,6 +5,7 @@ import { Day } from '../../../model/Day'
 import { ChipList, Chip } from '../Chips/Chips'
 import { AppContext } from '../../context/AppContext'
 import { Content } from '../Layout/Layout'
+import { PrimaryHeadline, SecondaryHeadline } from '../Typography/Typography'
 
 interface Props {
 	day: Day
@@ -16,8 +17,8 @@ const DayOverview: FunctionComponent<Props> = ({ day }) => {
 	const { activeClass, setActiveClass } = useContext(AppContext)
 	return (
 		<Content>
-			<h1>{day.weekday}</h1>
-			<h2>{day.date}</h2>
+			<PrimaryHeadline>{day.weekday}</PrimaryHeadline>
+			<SecondaryHeadline>{day.date}</SecondaryHeadline>
 			<div className={bem('affected-elements')}>
 				<div className={bem('affected-elements__title')}>Klassen:</div>
 				<ChipList wrapLines>
