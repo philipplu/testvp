@@ -1,3 +1,4 @@
-export function parseSchoolClass(schoolClass: string): string {
-	return schoolClass.replace('Jg', '')
-}
+const parseSchoolClass = (schoolClass: string): string =>
+	schoolClass.replace('Jg', '')
+
+export { parseSchoolClass }

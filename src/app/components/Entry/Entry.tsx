@@ -1,20 +1,16 @@
-import { bemModule } from '@jahed/bem'
 import React, { FunctionComponent, useContext } from 'react'
-import cssModule from './entry.module.scss'
 import { Entry as IEntry } from '../../../model/Entry'
-import { ListItem, ListItemContent, ListItemDetails } from '../List/List'
-import { TeacherDetail } from './details/TeacherDetail'
-import { RoomDetail } from './details/RoomDetail'
-import { TypeDetail } from './details/TypeDetail'
-import { InfoDetail } from './details/InfoDetail'
-import { TimeDetail } from './details/TimeDetail'
 import { AppContext } from '../../context/AppContext'
+import { ListItem, ListItemContent, ListItemDetails } from '../List/List'
+import { InfoDetail } from './details/InfoDetail'
+import { RoomDetail } from './details/RoomDetail'
+import { TeacherDetail } from './details/TeacherDetail'
+import { TimeDetail } from './details/TimeDetail'
+import { TypeDetail } from './details/TypeDetail'
 
 interface Props {
 	entry: IEntry
 }
-
-const bem = bemModule(cssModule)
 
 const Entry: FunctionComponent<Props> = ({ entry }) => {
 	const { setActiveEntry, activeEntry } = useContext(AppContext)

@@ -20,5 +20,7 @@ const subjects: Subjects = {
 	KOrc: 'Klassenorchester',
 }
 
-export const getSubject = (abbreviation: string): string =>
+const getSubject = (abbreviation: string): string =>
 	subjects[abbreviation] ?? abbreviation
+
+export { getSubject }

@@ -1,3 +1,3 @@
-export function parseTime(time: string): string {
-	return time.replace('-', ' - ')
-}
+const parseTime = (time: string): string => time.replace('-', ' - ')
+
+export { parseTime }

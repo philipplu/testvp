@@ -1,4 +1,4 @@
-export function getHash(input: string): number {
+const getHash = (input: string): number => {
 	let hash = 0
 	if (input.length === 0) {
 		return hash
@@ -10,3 +10,5 @@ export function getHash(input: string): number {
 	}
 	return hash
 }
+
+export { getHash }

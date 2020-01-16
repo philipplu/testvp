@@ -1,4 +1,4 @@
-export function sortSchoolClasses(a: string, b: string): number {
+const sortSchoolClasses = (a: string, b: string): number => {
 	const aNumber: number = parseInt(a, 10)
 	const bNumber: number = parseInt(b, 10)
 	if (aNumber < bNumber) {
@@ -17,3 +17,5 @@ export function sortSchoolClasses(a: string, b: string): number {
 	}
 	return 0
 }
+
+export { sortSchoolClasses }

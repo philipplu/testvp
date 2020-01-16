@@ -3,17 +3,17 @@ import { getData } from './utils/getData'
 import { getDate } from './utils/getDate'
 import { Day } from '../model/Day'
 import { Payload } from '../model/Payload'
-import { parse } from './utils/parse'
+import { parsePayload } from './utils/parsePayload'
 
 interface DataResponse {
 	statusCode: number
 	body: string
 }
 
-export async function handler(
+const handler = async (
 	event: APIGatewayEvent,
 	context: Context
-): Promise<DataResponse> {
+): Promise<DataResponse> => {
 	const lastUpdate = event?.queryStringParameters?.lastUpdate
 
 	console.log(lastUpdate)
@@ -30,10 +30,12 @@ export async function handler(
 
 	const payloads: Payload[] = await Promise.all(requests)
 
-	const days: Day[] = payloads.map(parse)
+	const days: Day[] = payloads.map(parsePayload)
 
 	return {
 		statusCode: 200,
 		body: JSON.stringify(days),
 	}
 }
+
+export { handler }

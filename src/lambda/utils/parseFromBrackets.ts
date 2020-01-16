@@ -1,8 +1,8 @@
 import { Changeable } from '../../model/Changeable'
 import { stripHtml } from './stripHtml'
 
-export function praseFromBrackets(input: string): Changeable[] {
-	return stripHtml(input)
+const praseFromBrackets = (input: string): Changeable[] =>
+	stripHtml(input)
 		.split(', ')
 		.map(
 			(item: string): Changeable => {
@@ -17,4 +17,5 @@ export function praseFromBrackets(input: string): Changeable[] {
 			}
 		)
 		.filter(element => element.effective !== '')
-}
+
+export { praseFromBrackets }

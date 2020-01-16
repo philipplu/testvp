@@ -2,7 +2,7 @@ import { PayloadRow } from '../../model/Payload'
 import { parseSchoolClass } from './parseSchoolClass'
 import { praseFromBrackets } from './parseFromBrackets'
 
-export function optionalTeacher(row: PayloadRow): string {
+const optionalTeacher = (row: PayloadRow): string => {
 	const grade = parseSchoolClass(row.group)
 	if (grade == '11' || grade === '12') {
 		const teachers = praseFromBrackets(row.data[5])
@@ -13,3 +13,5 @@ export function optionalTeacher(row: PayloadRow): string {
 	}
 	return ''
 }
+
+export { optionalTeacher }

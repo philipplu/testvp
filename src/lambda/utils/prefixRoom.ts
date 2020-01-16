@@ -1,6 +1,6 @@
 import { Changeable } from '../../model/Changeable'
 
-export function prefixRoom(changeable: Changeable): Changeable {
+const prefixRoom = (changeable: Changeable): Changeable => {
 	const isNumber: RegExp = /^\d+$/
 	if (isNumber.test(changeable.effective)) {
 		changeable.effective = `R${changeable.effective}`
@@ -10,3 +10,5 @@ export function prefixRoom(changeable: Changeable): Changeable {
 	}
 	return changeable
 }
+
+export { prefixRoom }

@@ -12,7 +12,7 @@ import { optionalTeacher } from './optionalTeacher'
 import { parseTime } from './parseTime'
 import { parseHours } from './parseHours'
 
-export function formatEntries(rows: PayloadRow[]): SchoolClass[] {
+const formatEntries = (rows: PayloadRow[]): SchoolClass[] => {
 	rows = rows.sort((a, b) =>
 		sortSchoolClasses(parseSchoolClass(a.group), parseSchoolClass(b.group))
 	)
@@ -54,3 +54,5 @@ export function formatEntries(rows: PayloadRow[]): SchoolClass[] {
 
 	return entries
 }
+
+export { formatEntries }
