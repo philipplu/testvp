@@ -1,7 +1,7 @@
 import React, { FunctionComponent, Fragment } from 'react'
 import { Changeable } from '../../../model/Changeable'
 import { IconType, Icon } from '../Icon/Icon'
-import styles from './chnageable-list.module.scss'
+import styles from './ChangeableList.module.scss'
 import { bemModule } from '@jahed/bem'
 
 const bem = bemModule(styles)

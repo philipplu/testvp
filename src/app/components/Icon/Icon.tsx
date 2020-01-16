@@ -1,6 +1,6 @@
 import React, { StatelessComponent } from 'react'
 import arrowPath from '../../img/arrow-right.svg'
-import styles from './icon.module.scss'
+import styles from './Icon.module.scss'
 import { bemModule } from '@jahed/bem'
 
 const bem = bemModule(styles)
@@ -17,7 +17,11 @@ type Props = React.DetailedHTMLProps<
 }
 
 const Icon: StatelessComponent<Props> = ({ type, className, ...props }) => (
-	<img className={bem('icon') + ' ' + className} src={type} {...props} />
+	<div
+		className={[bem('icon'), className].join(' ')}
+		style={{ backgroundImage: `url(${type})` }}
+		{...props}
+	/>
 )
 
 export { IconType, Icon }

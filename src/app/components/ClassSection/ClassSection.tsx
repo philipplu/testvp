@@ -1,7 +1,7 @@
 import { bemModule } from '@jahed/bem'
 import React, { FunctionComponent, useContext } from 'react'
 import { SchoolClass } from '../../../model/SchoolClass'
-import cssModule from './class-section.module.scss'
+import cssModule from './ClassSection.module.scss'
 import { Entry } from '../Entry/Entry'
 import { ListGroup, ListGroupTitle } from '../List/List'
 import { AppContext } from '../../context/AppContext'
