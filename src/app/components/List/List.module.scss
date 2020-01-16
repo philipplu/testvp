@@ -1,5 +1,3 @@
-@import '../../styles/colors';
-
 $list-header-width: 56px;
 
 .group {
@@ -97,7 +95,7 @@ $list-header-width: 56px;
 .group-title {
 	height: 48px;
 	width: 600px;
-	max-width: 100vw;
+	max-width: calc(100vw - 1rem + env(safe-area-inset-left));
 	margin: auto;
 	line-height: 48px;
 	color: var(--primary-color);
