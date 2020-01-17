@@ -7,13 +7,22 @@ import { Footer } from '../Footer/Footer'
 import '../../styles/main.scss'
 import { AppContextProvider } from '../../context/AppContext'
 import { Nullable } from '../../../model/Nullable'
+import { useActiveClass } from '../../hooks/useActiveClass'
+import { allAffectedElements } from '../../util/allAffectedElements'
 
 const bem = bemModule(cssModule)
 
 const App: FunctionComponent = () => {
 	const { data, refresh } = useData()
-	const [activeClass, setActiveClass] = useState<Nullable<string>>(null)
+	const [activeClass, setActiveClass] = useActiveClass(
+		allAffectedElements(data)
+	)
 	const [activeEntry, setActiveEntry] = useState<Nullable<number>>(null)
+
+	if (data.length === 0) {
+		return null
+	}
+
 	return (
 		<AppContextProvider
 			value={{
