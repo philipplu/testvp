@@ -39,12 +39,14 @@ const DaySection: FunctionComponent<Props> = ({ day }) => {
 					</List>
 				</div>
 			)}
-			{day.entries.map(schoolClass => (
-				<ClassSection
-					schoolClass={schoolClass}
-					key={schoolClass.schoolClass}
-				/>
-			))}
+			<List>
+				{day.entries.map(schoolClass => (
+					<ClassSection
+						schoolClass={schoolClass}
+						key={schoolClass.schoolClass}
+					/>
+				))}
+			</List>
 		</div>
 	)
 }
