@@ -18,9 +18,18 @@ const subjects: Subjects = {
 	Phy: 'Physik',
 	Orc: 'Orchester',
 	KOrc: 'Klassenorchester',
+	Frz: 'Französich',
+	Phi: 'Philosophie',
 }
 
-const getSubject = (abbreviation: string): string =>
-	subjects[abbreviation] ?? abbreviation
+const getSubject = (abbreviation: string): string => {
+	if (abbreviation[0] === 'S') {
+		const subject = subjects[abbreviation.substr(1)]
+		if (subject !== undefined) {
+			return `${subject} Seminar`
+		}
+	}
+	return subjects[abbreviation] ?? abbreviation
+}
 
 export { getSubject }
