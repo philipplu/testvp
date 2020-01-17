@@ -16,10 +16,6 @@ const handler = async (
 ): Promise<DataResponse> => {
 	const lastUpdate = event?.queryStringParameters?.lastUpdate
 
-	console.log(lastUpdate)
-
-	console.log(getDate())
-
 	const daysToShow: number = 2
 	const date: number = getDate()
 
