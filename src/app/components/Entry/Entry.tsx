@@ -16,7 +16,10 @@ const Entry: FunctionComponent<Props> = ({ entry }) => {
 	const { setActiveEntry, activeEntry } = useContext(AppContext)
 	const forceShow = activeEntry === entry.hash
 	return (
-		<ListItem onClick={() => setActiveEntry(forceShow ? null : entry.hash)}>
+		<ListItem
+			clickable
+			onClick={() => setActiveEntry(forceShow ? null : entry.hash)}
+		>
 			<ListItemContent
 				primaryText={entry.subject}
 				secondaryText={entry.hours}
