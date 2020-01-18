@@ -20,6 +20,7 @@ const subjects: Subjects = {
 	KOrc: 'Klassenorchester',
 	Frz: 'Französich',
 	Phi: 'Philosophie',
+	Gri: 'Griechisch',
 }
 
 const getSubject = (abbreviation: string): string => {
