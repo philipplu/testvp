@@ -1,0 +1,13 @@
+.refresh-button {
+	transition: transform 2s;
+	&--refreshing {
+		color: red;
+		animation: rotating infinite 300ms ease-in-out;
+	}
+}
+
+@keyframes rotating {
+	to {
+		transform: rotate(360deg);
+	}
+}

@@ -6,6 +6,8 @@ export interface IAppContext {
 	setActiveClass: (activeClass: Nullable<string>) => void
 	activeEntry: Nullable<number>
 	setActiveEntry: Dispatch<SetStateAction<Nullable<number>>>
+	isRefreshing: boolean
+	refresh: () => Promise<void>
 }
 
 const AppContext = createContext<IAppContext>(undefined as never)

@@ -9,11 +9,12 @@ import { AppContextProvider } from '../../context/AppContext'
 import { Nullable } from '../../../model/Nullable'
 import { useActiveClass } from '../../hooks/useActiveClass'
 import { allAffectedElements } from '../../util/allAffectedElements'
+import { RefreshButton } from '../RefreshButton/RefreshButton'
 
 const bem = bemModule(cssModule)
 
 const App: FunctionComponent = () => {
-	const { data, refresh } = useData()
+	const { data, refresh, isRefreshing } = useData()
 	const [activeClass, setActiveClass] = useActiveClass(
 		allAffectedElements(data)
 	)
@@ -30,13 +31,15 @@ const App: FunctionComponent = () => {
 				setActiveClass,
 				activeEntry,
 				setActiveEntry,
+				isRefreshing,
+				refresh,
 			}}
 		>
 			<div className={bem('app')}>
+				<RefreshButton />
 				{data.map(day => (
 					<DaySection day={day} key={day.date}></DaySection>
 				))}
-				<button onClick={refresh}>refresh</button>
 				<Footer lastUpdate={data?.[0]?.lastUpdate}></Footer>
 			</div>
 		</AppContextProvider>
